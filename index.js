@@ -49,8 +49,8 @@ const main = async (fn, limit = 120) => {
         let monthPrayer = parsePrayersFromResponse(data);
         // Add City infos and day
         monthPrayer.forEach(m => {
-          m.cityId = city._id;
-          m.day = new Date(new Date().getFullYear(), monthIndex - 1, m.day);
+          m.city = city._id;
+          m.month = monthIndex;
         });
         results.push(...monthPrayer);
       } catch (ex) {
