@@ -1,14 +1,15 @@
-const prayers = require("./remain.json");
-const serviceAccount = require("./key.json");
+const prayers = require("./remain.json"); // length = 41358
+// const serviceAccount = require("./key.json");
 const { db } = require("./config");
+const fs = require("fs");
 
 const firestoreService = require("firestore-export-import");
 const databaseURL = "https://salat-1234.firebaseio.com";
 
 db.collection("prayers")
   .get()
-  .then(res => console.log(res.docs.length))
-  .catch(err => console.log(err));
+  .then((res) => console.log(res.docs.length))
+  .catch((err) => console.log(err));
 
 // JSON To Firestore
 // const jsonToFirestore = async () => {
