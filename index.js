@@ -74,5 +74,7 @@ const saveJson = (name) => (prayers) =>
   fs.writeFileSync(name + ".json", JSON.stringify(prayers));
 
 (async () => {
-  await main(saveJson(`prayers_${new Date().toLocaleDateString().join(" ")}`));
+  const filename = `prayers_${new Date().toLocaleDateString().split('/').join('_')}`;
+  console.log(`Saving to ${filename}`);
+  await main(saveJson(filename));
 })();
